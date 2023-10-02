@@ -3,7 +3,7 @@
   "version": "1.0.30",
   "description": "",
   "author": "",
-  "types": "src/index.d.ts",
+  "types": "./src/index.d.ts",
   "type": "module",
   "main": "index.cjs",
   "module": "index.js",
