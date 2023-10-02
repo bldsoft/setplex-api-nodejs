@@ -4,7 +4,6 @@
   "description": "",
   "author": "",
   "types": "./src/index.d.ts",
-  "type": "module",
   "main": "index.cjs",
   "module": "index.js",
   "exports": {
