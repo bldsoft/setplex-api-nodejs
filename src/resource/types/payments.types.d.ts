@@ -1,5 +1,6 @@
-import type { AuthRequest, CommonRequest, CommonResponse } from './';
+import type { AuthRequest, CommonRequest, CommonResponse, Location } from './';
 import type { AddOnType, ExternalPaymentSystemTypes } from './constants';
+import type { PeriodTimeUnits } from './constants';
 /**
  * Interface of the request object for call /payments/doSingle
  */
@@ -269,7 +270,33 @@ export interface PaymentsAPIDoRequest extends CommonRequest {
      * Use default subscriber’s payment method to process payment for  AUTHORIZE_NET payment system. For EXTERNAL_PAYMENTS payment systems this flag will be skipped.
      */
     useDefaultPaymentMethod?: true;
+    /**
+     * Flag describes if the trial period is used of the selected subscription. The option is available only for new Subscribers, who have not had any Subscription.
+     */
     trial?: true;
+    /**
+     * These fields should be specified for Cash payments. If the specifying cash location is required for payments.
+     * Available values can be obtained by getting the Cash location library.
+     */
+    cashLocation?: Location;
+    /**
+     * Check number is required for payments via Checks.
+     */
+    checkNumber?: string;
+    /**
+     * Identifier of the payment currency. This field is required if the payment is made by check.
+     */
+    currencyId?: number;
+    /**
+     * Auto prolongation for content set addons. If autoPay flag in the same request is false, this flag will be skipped.
+     * @default false
+     */
+    contentAddonsAutoPay?: boolean;
+    /**
+     * Prorate price of overriding subscription (ignored if not applicable).
+     * @default false
+     */
+    prorateSubscription?: boolean;
 }
 export interface PaymentsAPIDoResponse extends CommonResponse {
     /**
@@ -296,19 +323,23 @@ export interface RePayResult {
      * Password of subscriber.
      */
     password: string;
+    /**
+     * Unique number of the payment, which is used to reference Subscriber's payments and purchases.
+     */
+    paymentNumber: string;
 }
 export interface PaymentsAPICalculateRequest extends CommonRequest {
     auth?: AuthRequest;
     /**
-     * Id of subscription
+     * Identifier of the ordered Subscription.
      */
     subscriptionId: string;
     /**
-     * Number of ordered devices
+     * Number of the ordered devices.
      */
     deviceCount: number;
     /**
-     * List of AddOn's Ids.
+     * List of identifiers of Add-ons (additional services).
      */
     addOns: string[];
     /**
@@ -321,6 +352,7 @@ export interface PaymentsAPICalculateRequest extends CommonRequest {
      */
     contentAddOns?: ContentAddOnCalculateRequest[];
     /**
+     * Payment system type, which is used for making payment. If the field is empty, the default payment system will be used.
      * @default PaymentSystemTypes.AUTHORIZE_NET
      */
     paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
@@ -328,14 +360,25 @@ export interface PaymentsAPICalculateRequest extends CommonRequest {
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
     externalPaymentSystemType?: ExternalPaymentSystemTypes;
+    /**
+     * Identifier of the payment currency. It is used only for the Check payment system type.
+     */
+    currencyId?: number;
+    /**
+     * Prorate price of overriding subscription (ignored if not applicable).
+     */
+    prorateSubscription?: boolean;
 }
 export interface ContentAddOnCalculateRequest {
     /**
-     * Id of Add-on content set
+     * External identifier of the content Add-on
+     * @description pattern: ^[a-z0-9]+$ maxLength: 36
+     * @example tvshow:77903b21-c295-48b4-b018-730843b2d10d
      */
     externalId: string;
     /**
-     * Type of monetization
+     * Monetization type of the content add-on.
+     * @description Available values: - RENT - with limited period of accessibility; - PURCHASE -with unlimited period accessibility.
      */
     priceSettingsType: AddOnType;
 }
@@ -354,6 +397,10 @@ export interface CalculateResult {
      * Detail calculation info by addOns
      */
     addOns: CalculateResultDTO[];
+    /**
+     * Detail calculation info by devices
+     */
+    addDevice: CalculateResultDTO;
     /**
      * Detail calculation info by contentSet addOns
      * @deprecated
@@ -386,9 +433,13 @@ export interface CalculateResult {
      */
     paymentKey: string;
     /**
-     * Expiration time of key for payment
+     * Expiration time of key for payment.
      */
     paymentKeyExpireTimeInMinutes: number;
+    /**
+     * Current subscription need to be overridden by the currently paid Subscription.
+     */
+    override: boolean;
 }
 export interface CalculateResultDTO {
     /**
@@ -397,19 +448,32 @@ export interface CalculateResultDTO {
     id: string;
     /**
      * Full price of item
+     * @description pattern: ^\d{7}(\.\d{1,2})?$
      */
     fullPrice: number;
     /**
      * Include only tax price of item
+     * @description pattern: ^\d{7}(\.\d{1,2})?$
      */
     taxPrice: number;
+    /**
+     * Initial price in case of prorating. If no prorating applied - equal to full price
+     */
+    initialPrice: number;
+    /**
+     * Discount amount in case of prorating. If no prorating applied - equal to zero.
+     */
+    proratedValue: number;
 }
 export interface ContentSetAddOnCalculateResultDTO {
     /**
      * Id of item
      */
     id: string;
-    type: string;
+    /**
+     * Type of monetization the ordered content add-on: Purchased or Rented.
+     */
+    type: 'RENT' | 'PURCHASE';
     /**
      * Full price of item
      */
@@ -422,6 +486,19 @@ export interface ContentSetAddOnCalculateResultDTO {
      * If rent length more than remaining current subscription days, pricing of rent is recalculated based on remaining subscription days
      */
     proratedAmount: ContentSetAddOnProratedAmountCalculateResultDTO;
+    /**
+     * Rental period length of the ordered content add-on, which is prorated.
+     * @description Note: Content add-on might be unlimited, in this case period length is 0.
+     */
+    periodLength: number;
+    /**
+     * Interval of time which the prorated add-on is available during its rent period.
+     */
+    periodTimeUnit: PeriodTimeUnits;
+    /**
+     * Flag describes if the ordered content add-on is unlimited.
+     */
+    periodUnlimited: boolean;
 }
 export interface ContentSetAddOnProratedAmountCalculateResultDTO {
     /**

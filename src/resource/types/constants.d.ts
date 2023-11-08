@@ -53,3 +53,8 @@ export declare enum PaymentSystems {
     TELR = "TELR",
     EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS"
 }
+export declare enum PeriodTimeUnits {
+    DAY = "DAY",
+    MONTH = "MONTH",
+    YEAR = "YEAR"
+}

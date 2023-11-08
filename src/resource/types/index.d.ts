@@ -27,3 +27,7 @@ export interface ContextAPI {
     send: () => AxiosInstance;
     post<R = any, D = any>(url: string, data?: D, config?: any): Promise<R>;
 }
+export interface Location {
+    id: number;
+    name: string;
+}
