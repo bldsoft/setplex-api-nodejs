@@ -68,6 +68,11 @@ export interface NoraAPIPaymentSystemsOptionsRecalculateRequest {
      * List of Content AddOn's data.
      */
     contentAddOns: NoraAPIPaymentSystemsOptionsContentAddOn[];
+    /**
+     * Prorate price of overriding subscription (ignored if not applicable).
+     * @default false
+     */
+    prorateSubscription?: boolean;
 }
 export interface NoraAPIPaymentSystemsOptionsContentAddOn {
     externalId: string;
