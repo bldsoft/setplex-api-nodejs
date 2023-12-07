@@ -3,10 +3,10 @@
   "version": "1.0.37",
   "description": "",
   "author": "",
-  "types": "./src/index.d.ts",
   "type": "module",
   "main": "index.cjs",
   "module": "index.js",
+  "types": "./src/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
