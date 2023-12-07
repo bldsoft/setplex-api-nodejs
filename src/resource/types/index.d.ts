@@ -4,6 +4,11 @@ export interface AuthRequest {
     login?: string;
     accountNumber?: string;
     lastName?: string;
+    /**
+     * JWT access token for subscriber what can be issued for nora client application.
+     * If access token is specified, account number and last name validation will be skipped.
+     */
+    accessToken?: string;
 }
 export interface CommonRequest {
     auth?: AuthRequest;

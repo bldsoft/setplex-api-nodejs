@@ -1,6 +1,6 @@
 {
   "name": "setplex-api-nodejs",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "",
   "author": "",
   "types": "./src/index.d.ts",

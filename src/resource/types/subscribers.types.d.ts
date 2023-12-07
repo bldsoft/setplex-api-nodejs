@@ -4,7 +4,7 @@ export interface NoraAPIGetSubscriberRequest extends CommonRequest {
     auth: AuthRequest;
 }
 export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
-    auth?: Omit<AuthRequest, 'accountNumber' | 'lastName'>;
+    auth?: Omit<AuthRequest, 'accountNumber' | 'lastName' | 'accessToken'>;
     login: string;
     password: string;
 }
