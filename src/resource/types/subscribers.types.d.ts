@@ -3,6 +3,9 @@ import type { SubscriberPaymentStatuses, SubscriptionReason, SubscriptionStatus 
 export interface NoraAPIGetSubscriberRequest extends CommonRequest {
     auth: AuthRequest;
 }
+export interface NoraAPIGetSubscriberByEmailRequest extends CommonRequest {
+    email: string;
+}
 export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
     auth?: Omit<AuthRequest, 'accountNumber' | 'lastName' | 'accessToken'>;
     login: string;
@@ -10,6 +13,9 @@ export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
 }
 export interface NoraAPIGetSubscriberResponse extends CommonResponse {
     result: NoraAPISubscriber;
+}
+export interface NoraAPIGetSubscriberByEmailResponse extends CommonRequest {
+    result: NoraAPISubscriber[];
 }
 export interface NoraAPISubscriber {
     /**

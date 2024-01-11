@@ -1,4 +1,4 @@
-import type { NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
+import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
 export declare class SubscribersAPI {
@@ -12,6 +12,13 @@ export declare class SubscribersAPI {
      * @returns Subscriber detail info
      */
     get(data: NoraAPIGetSubscriberRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscriberResponse>;
+    /**
+     * Get subscribers by email
+     * @param data Subscriber email
+     * @param config AxiosConfig
+     * @returns Subscribers detail info
+     */
+    getByEmail(data: NoraAPIGetSubscriberByEmailRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscriberByEmailResponse>;
     /**
      * Get subscriber by login and password
      * @param data Subscriber data info
