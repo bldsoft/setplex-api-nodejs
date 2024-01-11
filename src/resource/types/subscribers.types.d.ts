@@ -14,8 +14,26 @@ export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
 export interface NoraAPIGetSubscriberResponse extends CommonResponse {
     result: NoraAPISubscriber;
 }
-export interface NoraAPIGetSubscriberByEmailResponse extends CommonRequest {
-    result: NoraAPISubscriber[];
+export interface NoraAPIGetSubscriberByEmailResponse extends CommonResponse {
+    result: {
+        content: NoraAPISubscriber[];
+        /**
+         * Number of the displayed page
+         */
+        number: number;
+        /**
+         * Maximum elements, which are displayed on the page
+         */
+        size: number;
+        /**
+         * The flag which describes if the page is first
+         */
+        first: boolean;
+        /**
+         * The flag which describes if the page is last
+         */
+        last: boolean;
+    };
 }
 export interface NoraAPISubscriber {
     /**
