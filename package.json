@@ -1,16 +1,15 @@
 {
   "name": "setplex-api-nodejs",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "",
   "author": "",
+  "types": "src/index.d.ts",
   "type": "module",
   "main": "index.cjs",
   "module": "index.js",
-  "types": "./src/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./src/index.d.ts",
       "require": "./index.cjs",
       "import": "./index.js"
     }
