@@ -6,7 +6,8 @@ export declare enum PaymentSystemTypes {
     PAYPAL = "PAYPAL",
     TELR = "TELR",
     EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS",
-    GR4VY_GATEWAY = "GR4VY_GATEWAY"
+    GR4VY_GATEWAY = "GR4VY_GATEWAY",
+    CCPP = "CCPP"
 }
 export declare enum ExternalPaymentSystemTypes {
     AUTHORIZE_NET_MANUAL = "AUTHORIZE_NET_MANUAL",
@@ -51,7 +52,8 @@ export declare enum PaymentSystems {
     NEWEBPAY = "NEWEBPAY",
     PAYPAL = "PAYPAL",
     TELR = "TELR",
-    EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS"
+    EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS",
+    CCPP = "CCPP"
 }
 export declare enum PeriodTimeUnits {
     DAY = "DAY",

@@ -7,7 +7,7 @@ export interface NoraApiAddPaymentMethodRequest extends CommonRequest {
     /**
      * Payment system type. Allowable value is GR4VY_GATEWAY
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * Before storing payment method in Gr4vy gateway, transaction have to be authorized. To void transaction, transaction Id have to be passed in the request.
      */
@@ -163,7 +163,7 @@ export interface NoraApiCreateCreditCardsRequest extends CommonRequest {
     /**
      * Payment system
      */
-    paymentSystemType?: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType?: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * A login of a merchant account in a payment system
      */

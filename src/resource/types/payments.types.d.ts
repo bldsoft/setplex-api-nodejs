@@ -35,7 +35,7 @@ export interface PaymentsAPIDoSingleRequest extends CommonRequest {
     /**
      * @default PaymentSystemTypes.AUTHORIZE_NET
      */
-    paymentSystemType?: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType?: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
@@ -252,7 +252,7 @@ export interface PaymentsAPIDoRequest extends CommonRequest {
     /**
      * @default PaymentSystemTypes.AUTHORIZE_NET
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
@@ -355,7 +355,7 @@ export interface PaymentsAPICalculateRequest extends CommonRequest {
      * Payment system type, which is used for making payment. If the field is empty, the default payment system will be used.
      * @default PaymentSystemTypes.AUTHORIZE_NET
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
@@ -515,7 +515,7 @@ export interface PaymentsAPICalculateContentSetsRequest extends CommonRequest {
     /**
      * Payment System type
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
@@ -618,7 +618,7 @@ export interface PaymentsAPIPayContentSetsRequest extends CommonRequest {
     /**
      * Payment System type
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS';
+    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP';
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */
