@@ -2,6 +2,7 @@ import type { CommonRequest } from './index';
 import type { AuthRequest } from './index';
 import type { CommonResponse } from './index';
 import type { AddOnType } from './constants';
+import type { NoraAPISubscriberPurchasedAccessories, NoraAPISubscriberPurchasedContentAddOn, NoraApiSubscriberSubscriptionStatus } from './subscribers.types';
 /**
  * Interface of the request object for call /payment-systems/getAvailable
  */
@@ -159,4 +160,76 @@ export interface NoraAPIPaymentSystemsOption {
      * Payment form options for GR4VY_GATEWAY payment system type
      */
     embedTokenInfo: NoraAPIPaymentSystemsOptionEmbedTokenInfo;
+}
+export interface NoraAPIPaymentSystemsCheckResultRequest extends CommonRequest {
+    auth: AuthRequest;
+    /**
+     * Invoice number from 2C2P response
+     * */
+    paymentNumber: string;
+}
+export interface NoraAPIPaymentSystemsCheckResultResponse extends CommonResponse {
+    result: NoraAPIPaymentSystemsResult;
+}
+export interface NoraAPIPaymentSystemsResult {
+    /**
+     * Date of payment activation
+     */
+    activeFrom: string;
+    /**
+     * Date of payment deactivation
+     */
+    activeUntil: string;
+    /**
+     * Date when payment has been accepted
+     */
+    processDate: string;
+    /**
+     * List of purchased Content Addons
+     */
+    purchasedContentAddOns: NoraAPISubscriberPurchasedContentAddOn[];
+    /**
+     * List of purchased accessories
+     */
+    purchasedAccessories: NoraAPISubscriberPurchasedAccessories[];
+    /**
+     * Number of ordered devices
+     */
+    deviceCount: number;
+    /**
+     * Flag describes if auto payment is enabled for subscription
+     */
+    autoPay: boolean;
+    /**
+     * Flag describes if the ordered content add-on is unlimited.
+     */
+    periodUnlimited: boolean;
+    /**
+     * Flag describes if the trial period is used of the selected subscription
+     */
+    trial: boolean;
+    /**
+     * Flag describes if the AVOD monetization is used of the selected subscription
+     */
+    avod: boolean;
+    /**
+     * Amount of payment
+     */
+    totalAmount: number;
+    /**
+     * Alphabetic code of the currency, according to internal standard ISO 4217
+     */
+    currencyCode: string;
+    /**
+     * The Identifier of the Subscription
+     */
+    subscriptionIdentifier: string;
+    /**
+     * Information about paid subscription status and reasons of cancellation
+     */
+    subscriptionStatus: NoraApiSubscriberSubscriptionStatus;
+    /**
+     * Unique number of the payment, which is used to reference Subscriber's payments and purchases.
+     */
+    paymentNumber: string;
 }

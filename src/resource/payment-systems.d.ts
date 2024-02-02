@@ -1,6 +1,6 @@
 import type { ContextAPI } from './types';
 import type { AxiosRequestConfig } from 'axios';
-import type { NoraAPIAvailablePaymentSystemsRequest, NoraAPIAvailablePaymentSystemsResponse, NoraAPIPaymentSystemsAddFlowRequest, NoraAPIPaymentSystemsAddFlowResponse, NoraAPIPaymentSystemsOptionsRequest, NoraAPIPaymentSystemsOptionsResponse } from './types/payment-systems.types';
+import type { NoraAPIAvailablePaymentSystemsRequest, NoraAPIAvailablePaymentSystemsResponse, NoraAPIPaymentSystemsAddFlowRequest, NoraAPIPaymentSystemsAddFlowResponse, NoraAPIPaymentSystemsCheckResultRequest, NoraAPIPaymentSystemsCheckResultResponse, NoraAPIPaymentSystemsOptionsRequest, NoraAPIPaymentSystemsOptionsResponse } from './types/payment-systems.types';
 export declare class PaymentSystemsAPI {
     readonly path = "/payment-form";
     readonly context: ContextAPI;
@@ -27,4 +27,10 @@ export declare class PaymentSystemsAPI {
      * @param config AxiosConfiguration
      */
     addFlow(data?: NoraAPIPaymentSystemsAddFlowRequest, config?: AxiosRequestConfig): Promise<NoraAPIPaymentSystemsAddFlowResponse>;
+    /**
+     * Check result by payment number. Used for 2C2P Payments
+     * @param data Full data about subscriber, invoice number from 2C2P
+     * @param config AxiosConfiguration
+     */
+    checkResult(data?: NoraAPIPaymentSystemsCheckResultRequest, config?: AxiosRequestConfig): Promise<NoraAPIPaymentSystemsCheckResultResponse>;
 }

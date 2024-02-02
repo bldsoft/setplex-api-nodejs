@@ -216,6 +216,32 @@ export interface NoraAPISubscriberPurchasedContentAddOn {
     coverUrl: string;
     description: string;
 }
+export interface NoraAPISubscriberPurchasedAccessories {
+    /**
+     * External identifier of the purchased accessory
+     */
+    externalId: string;
+    /**
+     * Name of the purchased accessory
+     */
+    name: string;
+    /**
+     * Price of the purchased accessory
+     */
+    price: number;
+    /**
+     * Type of the purchased accessory
+     */
+    accessoryType: 'BOX' | 'SHIPPING' | 'FEE' | 'EQUIPMENT';
+    /**
+     * Code of payment currency (ISO 4217) of the purchased accessory
+     */
+    currency: string;
+    /**
+     * Description of the purchased accessory
+     */
+    description: string;
+}
 export interface NoraAPISubscriberExternalDevice {
     /**
      * Serial number of devices.
