@@ -201,6 +201,10 @@ export interface NoraAPISubscriptionAddOn {
      */
     amount: number;
     /**
+     * Description of addon
+     */
+    description: string;
+    /**
      * Addon type.
      */
     accessoryType: AccessoryTypes;
