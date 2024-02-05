@@ -162,7 +162,7 @@ export interface NoraAPIPaymentSystemsOption {
     embedTokenInfo: NoraAPIPaymentSystemsOptionEmbedTokenInfo;
 }
 export interface NoraAPIPaymentSystemsCheckResultRequest extends CommonRequest {
-    auth: AuthRequest;
+    auth?: AuthRequest;
     /**
      * Invoice number from 2C2P response
      * */

@@ -60,3 +60,9 @@ export declare enum PeriodTimeUnits {
     MONTH = "MONTH",
     YEAR = "YEAR"
 }
+export declare enum AccessoryTypes {
+    BOX = "BOX",
+    FEE = "FEE",
+    SHIPPING = "SHIPPING",
+    EQUIPMENT = "EQUIPMENT"
+}

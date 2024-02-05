@@ -1,4 +1,5 @@
 import type { AuthRequest, CommonRequest, CommonResponse } from './';
+import type { AccessoryTypes } from './constants';
 export interface NoraAPIGetSubscriptionsRequest extends CommonRequest {
     auth?: AuthRequest;
     networkId?: string;
@@ -159,4 +160,8 @@ export interface NoraAPISubscriptionAddOn {
      * Total amount of Add-on (it includes amount types: PRICE, TAX_VAT, EXTRA_CHARGE)
      */
     amount: number;
+    /**
+     * Addon type.
+     */
+    accessoryType: AccessoryTypes;
 }
