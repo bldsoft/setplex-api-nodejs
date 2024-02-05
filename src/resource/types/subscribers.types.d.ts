@@ -352,7 +352,7 @@ export interface NoraApiSubscriberSubscriptionContentSets {
      */
     coverImageUrl: string;
     contentType: 'VOD' | 'CHANNEL' | 'TV_SHOW' | 'LIVE_EVENT';
-    purchased: true;
+    purchased: boolean;
     /**
      * Include information about BUY content set purchase option
      */
