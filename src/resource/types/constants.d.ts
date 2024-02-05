@@ -66,3 +66,17 @@ export declare enum AccessoryTypes {
     SHIPPING = "SHIPPING",
     EQUIPMENT = "EQUIPMENT"
 }
+export declare enum SubscriptionPlatforms {
+    STB = "STB",
+    PC = "PC",
+    IOS = "iOS",
+    ANDROID = "Android",
+    SAMSUNGTV = "SamsungTV",
+    OTHERS = "Others",
+    LG = "LG",
+    WEB = "WEB"
+}
+export declare enum SubscriberSubscriptionType {
+    PAID = "PAID",
+    FREEMIUM = "FREEMIUM"
+}

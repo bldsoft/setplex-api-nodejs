@@ -1,5 +1,5 @@
 import type { AuthRequest, CommonRequest, CommonResponse } from './';
-import type { AccessoryTypes } from './constants';
+import type { AccessoryTypes, SubscriberSubscriptionType, SubscriptionPlatforms } from './constants';
 export interface NoraAPIGetSubscriptionsRequest extends CommonRequest {
     auth?: AuthRequest;
     networkId?: string;
@@ -17,6 +17,10 @@ export interface NoraAPISubscription {
      */
     name: string;
     /**
+     * Subscription heading for shopping cart
+     */
+    heading: string;
+    /**
      * Description of subscription
      */
     description: string;
@@ -25,18 +29,38 @@ export interface NoraAPISubscription {
      */
     coverImageUrl: string;
     /**
+     * Platforms, from which the access to the current active Subscriber's Subscription can be made.
+     * Available values: - STB; - PC; - iOS; - Android; - SamsungTV; - LG; - WEB; - Others (other platform types).
+     */
+    platforms: SubscriptionPlatforms;
+    /**
+     * Subscription promo label for shopping cart
+     */
+    promoLabel: string;
+    /**
      * There is a field which contains info about count of days or months which subscription is active.
      * This field doesn't work alone. This field works with lengthType.
      */
     length: number;
+    /**
+     * Flag describes if auto payment allowed for subscription.
+     */
     autoPay: boolean;
+    /**
+     * Flag describes if the AVOD monetization is used of the selected subscription.
+     */
+    avod: boolean;
+    /**
+     * Information about payment statement=. true - if payment statement has unlimited length, false - if payment statement has limited length.
+     */
+    periodUnlimited: boolean;
     /**
      * There is a field which contains info about interval of time which subscription is active.
      * This field doesn't work alone. This field works with length field.
      */
     lengthType: 'DAYS' | 'MONTHS';
     /**
-     * Number of devices which can be paid
+     * Number of devices which can be paid.
      */
     maxDevices: number;
     /**
@@ -47,7 +71,14 @@ export interface NoraAPISubscription {
      * Code of currency.
      */
     currencyCode: string;
-    subscriptionType: string;
+    /**
+     * Type of the current Subscriber's Subscription.
+     * Available values: - FREEMIUM (getting subscription with the Freemium status does not imply payment); - PAID.
+     */
+    subscriptionType: SubscriberSubscriptionType;
+    /**
+     * Non-null if a subscription supports a trial period. The trial period is available only for new Subscribers.
+     */
     trial?: NoraApiSubscriptionTrial;
     /**
      * List of allowed Add-on content sets
@@ -138,6 +169,15 @@ export interface NoraAPIAddOnContentSetRent {
      */
     subscriptionLengthType: 'DAY' | 'MONTH' | 'YEAR';
     proratedAmount: NoraAPIAddOnContentSetRentProratedAmount;
+    /**
+     * Flag describes that the Channel add-on is rented for unlimited period.
+     * (Content add-ons of the other content types, such as VIdeo on Demand, TV show, Live Event, can not be unlimited.)
+     */
+    periodUnlimited: boolean;
+    /**
+     * Flag describes is content rent prolongation is allowed.
+     */
+    autoPayAllowed: boolean;
 }
 export interface NoraAPIAddOnContentSetRentProratedAmount {
     amount: number;
