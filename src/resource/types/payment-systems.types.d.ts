@@ -30,8 +30,9 @@ export interface NoraAPIPaymentSystemsOptionsRequest extends CommonRequest {
     auth?: AuthRequest;
     /**
      * Original amount of purchase: subscriptions with addOns and contentAddOns
+     * @deprecated
      */
-    amount: number;
+    amount?: number;
     /**
      * ISO code of subscriber’s country location.
      * 2 letters country ISO code
@@ -39,8 +40,9 @@ export interface NoraAPIPaymentSystemsOptionsRequest extends CommonRequest {
     country: string;
     /**
      * For auto pay. If true is passed, then the last state of the payment form for GR4VY is saved.
+     * @deprecated
      */
-    storePaymentMethod: boolean;
+    storePaymentMethod?: boolean;
     /**
      * Value of payment system for which you need to get settings
      * There are available value of this field: GR4VY_GATEWAY
@@ -50,6 +52,11 @@ export interface NoraAPIPaymentSystemsOptionsRequest extends CommonRequest {
      * Data to recalculate original amount and check that amount wasn’t changed during shopping cart checkout
      */
     recalculateRequest: NoraAPIPaymentSystemsOptionsRecalculateRequest;
+    /**
+     * Flag to store new payment method in the Gr4vy payment gateway automatically.
+     * 2C2P: Specify whether display store card checkbox is in payment page.
+     */
+    autoPay: boolean;
 }
 export interface NoraAPIPaymentSystemsOptionsRecalculateRequest {
     /**
@@ -64,16 +71,44 @@ export interface NoraAPIPaymentSystemsOptionsRecalculateRequest {
      * List of AddOn's Ids
      * A string can contains only letters and numbers in upper case. Max length of string is 9 characters
      */
-    addOns: string[];
+    addOns?: string[];
     /**
      * List of Content AddOn's data.
      */
-    contentAddOns: NoraAPIPaymentSystemsOptionsContentAddOn[];
+    contentAddOns?: NoraAPIPaymentSystemsOptionsContentAddOn[];
     /**
      * Prorate price of overriding subscription (ignored if not applicable).
      * @default false
      */
     prorateSubscription?: boolean;
+    /**
+     * Include upcoming subscription to recalculation (if prorating enabled)
+     */
+    prorateToUpcoming?: boolean;
+    /**
+     * This key will be obtained from the calculate request.
+     * If this field is empty, the total price can be changed.
+     * It can happen because the rate of currency or price of subscription can be changed.
+     * If this field contains data from the calculated request, the total price can not be changed.
+     * Because payment information will be cached.
+     */
+    paymentKey?: string;
+    /**
+     * Identifier of the payment currency.
+     */
+    currencyId?: number;
+    /**
+     * Auto prolongation for content set addons. If current subscription without auto pay, this flag will be skipped.
+     */
+    contentAddonsAutoPay?: boolean;
+    /**
+     * Flag describes if auto payment is enabled for subscription.
+     */
+    autoPay?: boolean;
+    /**
+     * Current subscription need to be overridden by the currently paid Subscription
+     */
+    override?: boolean;
 }
 export interface NoraAPIPaymentSystemsOptionsContentAddOn {
     externalId: string;
