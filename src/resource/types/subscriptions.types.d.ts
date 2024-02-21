@@ -219,6 +219,7 @@ export interface NoraAPIGetSubscriptionsPlansResponse extends CommonResponse {
     result: NoraAPISubscriptionsPlan[];
 }
 export interface NoraAPISubscriptionsPlan {
+    statisticId: number;
     name: string;
     description: string;
     coverImageUrl: string;
