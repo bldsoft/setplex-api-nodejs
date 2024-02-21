@@ -209,3 +209,21 @@ export interface NoraAPISubscriptionAddOn {
      */
     accessoryType: AccessoryTypes;
 }
+/**
+ * GET PLANS
+ */
+export interface NoraAPIGetSubscriptionsPlansRequest extends CommonRequest {
+    auth?: AuthRequest;
+}
+export interface NoraAPIGetSubscriptionsPlansResponse extends CommonResponse {
+    result: NoraAPISubscriptionsPlan[];
+}
+export interface NoraAPISubscriptionsPlan {
+    name: string;
+    description: string;
+    coverImageUrl: string;
+    label: string;
+    additionalInfo: string;
+    sortOrder: number;
+    subscriptions: NoraAPISubscription[];
+}

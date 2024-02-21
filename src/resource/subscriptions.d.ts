@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
-import type { NoraAPIGetSubscriptionsRequest, NoraAPIGetSubscriptionsResponse } from './types/subscriptions.types';
+import type { NoraAPIGetSubscriptionsPlansRequest, NoraAPIGetSubscriptionsPlansResponse, NoraAPIGetSubscriptionsRequest, NoraAPIGetSubscriptionsResponse } from './types/subscriptions.types';
 export declare class SubscriptionsAPI {
     readonly path = "/subscriptions";
     readonly context: ContextAPI;
@@ -12,4 +12,10 @@ export declare class SubscriptionsAPI {
      * @returns List of available subscriptions
      */
     get(data?: NoraAPIGetSubscriptionsRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscriptionsResponse>;
+    /**
+     * Get all available subscriptions with addons combined by subscription plans.
+     * @param data
+     * @param config
+     */
+    getPlans(data?: NoraAPIGetSubscriptionsPlansRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscriptionsPlansResponse>;
 }
