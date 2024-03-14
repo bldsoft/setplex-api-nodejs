@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
-import type { NoraApiCreateCreditCardsRequest, NoraApiCreateCreditCardsResponse, NoraApiDeleteCreditCardRequest, NoraApiSetDefaultCreditCardRequest, NoraApiSetDefaultCreditCardResponse, NoraApiGetPaymentMethodResponse, NoraApiGetPaymentMethodReuqest, NoraApiSetDefaultWalletRequest, NoraApiSetDefaultWalletResponse, NoraApiDeleteWalletRequest, NoraApiDeleteWalletResponse, NoraApiDeleteCreditCardResponse, NoraApiAddPaymentMethodRequest, NoraApiAddPaymentMethodResponse } from './types/payment-method.types';
+import type { NoraApiCreateCreditCardsRequest, NoraApiCreateCreditCardsResponse, NoraApiDeleteCreditCardRequest, NoraApiSetDefaultCreditCardRequest, NoraApiSetDefaultCreditCardResponse, NoraApiGetPaymentMethodResponse, NoraApiGetPaymentMethodReuqest, NoraApiSetDefaultWalletRequest, NoraApiSetDefaultWalletResponse, NoraApiDeleteWalletRequest, NoraApiDeleteWalletResponse, NoraApiDeleteCreditCardResponse, NoraApiAddPaymentMethodRequest, NoraApiAddPaymentMethodResponse, NoraApiInitTrueMoneyRequest, NoraApiInitTrueMoneyResponse, NoraApiBindTrueMoneyRequest, NoraApiBindTrueMoneyResponse } from './types/payment-method.types';
 export declare class PaymentMethodsAPI {
     readonly path = "/payment-method";
     readonly context: ContextAPI;
@@ -54,4 +54,21 @@ export declare class PaymentMethodsAPI {
      * @param config AxiosConfiguration
      */
     deleteCreditCard(data: NoraApiDeleteCreditCardRequest, creditCardId: number, config?: AxiosRequestConfig): Promise<NoraApiDeleteCreditCardResponse>;
+    /**
+     * Initiates the binding process of a TrueMoney account for a subscriber with a specified identifier.
+     * Returns a deeplink which a client application should provide to the subscriber in some form (like QR-code or something else).
+     * The deeplink redirects the subscriber to TMN application where he can accept binding.
+     * @param data auth data
+     * @param metadata redirect url additional parameters
+     * @param config AxiosConfiguration
+     */
+    initTrueMoney(data: NoraApiInitTrueMoneyRequest, config?: AxiosRequestConfig): Promise<NoraApiInitTrueMoneyResponse>;
+    /**
+     * Finishes the binding process of a TrueMoney account after the subscriber has given the necessary consent
+     * and auth code has been retrieved by a client application.
+     * @param data auth data
+     * @param authCode code for binding true money
+     * @param config AxiosConfiguration
+     */
+    bindTrueMoney(data: NoraApiBindTrueMoneyRequest, config?: AxiosRequestConfig): Promise<NoraApiBindTrueMoneyResponse>;
 }
