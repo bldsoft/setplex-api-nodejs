@@ -232,7 +232,7 @@ export interface NoraApiInitTrueMoneyRequest extends CommonRequest {
         [key: string]: string;
     };
 }
-export interface NoraApiInitTrueMoneyResponse extends CommonRequest {
+export interface NoraApiInitTrueMoneyResponse extends CommonResponse {
     /** Redirect url with code */
     result: string;
 }
@@ -241,5 +241,5 @@ export interface NoraApiBindTrueMoneyRequest extends CommonRequest {
     /** Code value returned with a redirect request */
     authCode: string;
 }
-export interface NoraApiBindTrueMoneyResponse extends CommonRequest {
+export interface NoraApiBindTrueMoneyResponse extends CommonResponse {
 }
