@@ -43,6 +43,7 @@ export declare class SubscribersAPI {
     /**
      * Loading subscriber subscription info
      * @param config AxiosConfig
+     * @param data body request data
      * @returns Subscription content sets info
      */
     getSubscription(data: NoraApiSubscriberSubscriptionGetRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberSubscriptionGetResponse>;

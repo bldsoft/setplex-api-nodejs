@@ -1,5 +1,6 @@
 import type { AuthRequest, CommonRequest, CommonResponse, OperationStatusResponse } from './';
 import type { SubscriberPaymentStatuses, SubscriptionReason, SubscriptionStatus } from './constants';
+import type { NoraAPISubscriptionPartnersProduct } from './subscriptions.types';
 export interface NoraAPIGetSubscriberRequest extends CommonRequest {
     auth: AuthRequest;
 }
@@ -492,6 +493,14 @@ export interface NoraApiSubscriberSubscription {
     allowedAddOns: NoraApiSubscriberSubscriptionAddOn[];
     activeFrom: string;
     activeUntil: string;
+    /**
+     * List of allowed partner products according subscription
+     */
+    partnerProducts: NoraApiSubscriberSubscriptionPartnerProducts[];
+    /**
+     * Current subscriber's subscription status
+     */
+    currentSubscriptionStatus: NoraApiSubscriberSubscriptionStatus;
 }
 export interface NoraApiSubscriberSubscriptionTrial {
     length: number;
@@ -606,4 +615,6 @@ export interface NoraApiSubscriberAutoPaySubscription {
 export interface NoraApiSubscriberSubscriptionStatus {
     status: SubscriptionStatus;
     reason: SubscriptionReason | null;
+}
+export interface NoraApiSubscriberSubscriptionPartnerProducts extends NoraAPISubscriptionPartnersProduct {
 }
