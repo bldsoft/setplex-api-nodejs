@@ -1,4 +1,4 @@
-import type { PaymentsAPIDoRequest, PaymentsAPIDoResponse, PaymentsAPIDoSingleRequest, PaymentsAPIDoSingleResponse, PaymentsAPICalculateRequest, PaymentsAPICalculateResponse, PaymentsAPICalculateContentSetsRequest, PaymentsAPICalculateContentSetsResponse, PaymentsAPIPayContentSetsRequest, PaymentsAPIPayContentSetsResponse } from './types/payments.types';
+import type { PaymentsAPIDoRequest, PaymentsAPIDoResponse, PaymentsAPIDoSingleRequest, PaymentsAPIDoSingleResponse, PaymentsAPICalculateRequest, PaymentsAPICalculateResponse, PaymentsAPICalculateContentSetsRequest, PaymentsAPICalculateContentSetsResponse, PaymentsAPIPayContentSetsRequest, PaymentsAPIPayContentSetsResponse, PaymentsAPICalculateAdditionsRequest, PaymentsAPIPayAdditionsRequest, PaymentsAPIPayAdditionsResponse, PaymentsAPICalculateAdditionsResponse } from './types/payments.types';
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
 export declare class PaymentsAPI {
@@ -38,4 +38,16 @@ export declare class PaymentsAPI {
      * @returns Calculation for needed subscription
      */
     payContentSets(data: PaymentsAPIPayContentSetsRequest, config?: AxiosRequestConfig): Promise<PaymentsAPIPayContentSetsResponse>;
+    /**
+     * Pay Additions
+     * @param data Payment data
+     * @param config AxiosConfiguration
+     */
+    payAdditions(data: PaymentsAPIPayAdditionsRequest, config?: AxiosRequestConfig): Promise<PaymentsAPIPayAdditionsResponse>;
+    /**
+     * Calculate additions
+     * @param data Required info for calculation
+     * @param config AxiosConfiguration
+     */
+    calculateAdditions(data: PaymentsAPICalculateAdditionsRequest, config?: AxiosRequestConfig): Promise<PaymentsAPICalculateAdditionsResponse>;
 }

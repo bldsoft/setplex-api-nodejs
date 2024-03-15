@@ -3,3 +3,4 @@ export { PaymentSystemTypes as NoraAPIPaymentSystemTypes, ExternalPaymentSystemT
 export { NoraAPISubscriber, NoraApiSubscriberSubscription, NoraApiSubscriberSubscriptionContentSets, } from './resource/types/subscribers.types';
 export { NoraAPISubscription, NoraAPISubscriptionsPlan } from './resource/types/subscriptions.types';
 export { NoraAPIPaymentSystemsOptionsRequest } from './resource/types/payment-systems.types';
+export { PayAdditionsResult, PaymentsAPIPayAdditionsRequest, CalculateAdditionsResult, PaymentsAPICalculateAdditionsRequest } from './resource/types/payments.types';

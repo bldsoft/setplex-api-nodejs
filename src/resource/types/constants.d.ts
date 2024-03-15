@@ -82,3 +82,6 @@ export declare enum SubscriberSubscriptionType {
     PAID = "PAID",
     FREEMIUM = "FREEMIUM"
 }
+export declare enum PartnerProviders {
+    iQIYI = "iQIYI"
+}

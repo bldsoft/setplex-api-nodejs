@@ -1,5 +1,5 @@
 import type { AuthRequest, CommonRequest, CommonResponse } from './';
-import type { AccessoryTypes, SubscriberSubscriptionType, SubscriptionPlatforms } from './constants';
+import type { AccessoryTypes, PartnerProviders, PeriodTimeUnits, SubscriberSubscriptionType, SubscriptionPlatforms } from './constants';
 export interface NoraAPIGetSubscriptionsRequest extends CommonRequest {
     auth?: AuthRequest;
     networkId?: string;
@@ -88,6 +88,10 @@ export interface NoraAPISubscription {
      * List of allowed addons.
      */
     allowedAddOns: NoraAPISubscriptionAddOn[];
+    /**
+     * List of allowed partner products according subscription
+     */
+    partnersProducts: NoraAPISubscriptionPartnersProduct[];
 }
 export interface NoraApiSubscriptionTrial {
     length: number;
@@ -208,6 +212,52 @@ export interface NoraAPISubscriptionAddOn {
      * Addon type.
      */
     accessoryType: AccessoryTypes;
+}
+export interface NoraAPISubscriptionPartnersProduct {
+    /**
+     * External identifier of the partner product
+     */
+    externalId: string;
+    /**
+     * Name of the partner product
+     */
+    name: string;
+    /**
+     * Identifier of the partner product on partner provider side
+     */
+    externalProductId: string;
+    /**
+     * Partner product cover img url
+     */
+    coverImageUrl: string;
+    /**
+     * Description of the partner product
+     */
+    description: string;
+    /**
+     * Identifier of the supported partner product providers
+     */
+    partnerProvider: PartnerProviders;
+    /**
+     * True if subscriber already has access to partner product
+     */
+    purchased: boolean;
+    /**
+     * Period how long partner product is available for subscriber
+     */
+    periodLength: number;
+    /**
+     * Partner product availability time unit
+     */
+    periodTimeUnit: PeriodTimeUnits;
+    /**
+     * Partner product price
+     */
+    amount: number;
+    /**
+     * Price currency of the of the partner product.
+     */
+    currency: string;
 }
 /**
  * GET PLANS

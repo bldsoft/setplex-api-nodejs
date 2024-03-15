@@ -1,5 +1,5 @@
 import type { AuthRequest, CommonRequest, CommonResponse, Location } from './';
-import type { AddOnType, ExternalPaymentSystemTypes } from './constants';
+import type { AddOnType, ExternalPaymentSystemTypes, PaymentSystemTypes } from './constants';
 import type { PeriodTimeUnits } from './constants';
 /**
  * Interface of the request object for call /payments/doSingle
@@ -147,6 +147,11 @@ export interface SingleCallSubscription {
      * List of ContentSetAddOns's configurations
      */
     contentAddOns?: ContentSetAddOnRequest[];
+    /**
+     * List of identifiers of ordered partner products
+     * Note: use externalId of PartnersProduct!
+     */
+    partnerProducts?: string[];
 }
 export interface ContentSetAddOnRequest {
     /**
@@ -297,6 +302,11 @@ export interface PaymentsAPIDoRequest extends CommonRequest {
      * @default false
      */
     prorateSubscription?: boolean;
+    /**
+     * List of identifiers of ordered partner products
+     * Note: use externalId of PartnersProduct!
+     */
+    partnerProducts?: string[];
 }
 export interface PaymentsAPIDoResponse extends CommonResponse {
     /**
@@ -368,6 +378,11 @@ export interface PaymentsAPICalculateRequest extends CommonRequest {
      * Prorate price of overriding subscription (ignored if not applicable).
      */
     prorateSubscription?: boolean;
+    /**
+     * List of identifiers of ordered partner products
+     * Note: use externalId of PartnersProduct!
+     */
+    partnerProducts?: string[];
 }
 export interface ContentAddOnCalculateRequest {
     /**
@@ -666,4 +681,125 @@ export interface PayContentSetsResultItem {
      * In case of RENT, rent ending date time.
      */
     availableTill: string;
+}
+/**
+ * *
+ * Payment Additions
+ * *
+ */
+export interface PaymentsAPICalculateAdditionsRequest extends CommonRequest {
+    auth: AuthRequest;
+    paymentSystemType?: PaymentSystemTypes;
+    currencyId: number;
+    externalPaymentSystemType?: ExternalPaymentSystemTypes;
+    /**
+     * List of AddOn's Ids.
+     */
+    addOns?: string[];
+    /**
+     * List of identifiers of ordered partner products
+     * Note: use externalId of PartnersProduct!
+     */
+    partnerProducts?: string[];
+    /**
+     * List of ContentSetAddOns's configurations
+     */
+    contentAddOns?: ContentSetAddOnRequest[];
+    /**
+     * Include upcoming subscription to Content Add-Ons price/length recalculation (if prorating enabled)
+     */
+    prorateToUpcoming?: boolean;
+}
+export interface PaymentsAPICalculateAdditionsResponse extends CommonResponse {
+    result: CalculateAdditionsResult;
+}
+export interface CalculateAdditionsResult {
+    /**
+     * Detail calculation info by addOns
+     */
+    addOns: CalculateResultDTO[];
+    /**
+     * Information about ordered partner products.
+     * It might be bought one or several partner products by the same payment.
+     */
+    partnerProducts: CalculateResultDTO[];
+    /**
+     * Detail calculation info by contentSet addOns
+     */
+    contentAddOns: ContentSetAddOnCalculateResultDTO[];
+    /**
+     * Total amount
+     * Note, if calculate is failed amount will be 0
+     */
+    totalAmount: number;
+    /**
+     * Code of current subscription currency.
+     */
+    currency: string;
+    /**
+     * May be different from totalAmount if subscription currency differ from currency supported by payment system.
+     */
+    convertedTotalAmount: number;
+    /**
+     * Currency code, which is used as currency of payment, if the currency of payment is different from the currency of the order
+     */
+    convertedCurrency: string;
+    paymentKey: string;
+    paymentKeyExpireTimeInMinutes: number;
+}
+export interface PaymentsAPIPayAdditionsRequest extends CommonRequest {
+    auth: AuthRequest;
+    /**
+     * List of ContentSetAddOns's configurations
+     */
+    contentAddOns?: ContentSetAddOnRequest[];
+    /**
+     * List of AddOn's Ids.
+     */
+    addOns?: string[];
+    /**
+     * List of identifiers of ordered partner products
+     * Note: use externalId of PartnersProduct!
+     */
+    partnerProducts?: string[];
+    creditCardId?: number;
+    paymentKey?: string;
+    paymentSystemType?: PaymentSystemTypes;
+    externalPaymentSystemType?: ExternalPaymentSystemTypes;
+    paymentMethodExtRefId?: string;
+    transactionId?: string;
+    /**
+     * These fields should be specified for Cash payments. If the specifying cash location is required for payments.
+     * Available values can be obtained by getting the Cash location library.
+     */
+    cashLocation?: Location;
+    checkNumber?: string;
+    currencyId?: number;
+    useDefaultPaymentMethod?: boolean;
+    /**
+     * Include upcoming subscription to Content Add-Ons price/length recalculation (if prorating enabled)
+     */
+    prorateToUpcoming?: boolean;
+    /**
+     * Auto prolongation for content set addons.
+     * If current subscription without auto pay, this flag will be skipped.
+     */
+    contentAddonsAutoPay?: boolean;
+}
+export interface PaymentsAPIPayAdditionsResponse extends CommonResponse {
+    result: PayAdditionsResult;
+}
+export interface PayAdditionsResult {
+    /**
+     * Information about content paid add-ons
+     */
+    contentAddOns: ContentSetAddOnResponse[];
+    /**
+     * Information about paid add-ons
+     */
+    addons: string[];
+    /**
+     * Unique number of the payment, which is used to reference Subscriber's payments and purchases.
+     */
+    paymentNumber: string;
 }
