@@ -228,9 +228,7 @@ export interface NoraApiDeleteCreditCardResponse extends CommonResponse {
 export interface NoraApiInitTrueMoneyRequest extends CommonRequest {
     auth: AuthRequest;
     /** Redirect url additional parameters */
-    metadata?: {
-        [key: string]: string;
-    };
+    state: string;
 }
 export interface NoraApiInitTrueMoneyResponse extends CommonResponse {
     /** Redirect url with code */
