@@ -616,5 +616,11 @@ export interface NoraApiSubscriberSubscriptionStatus {
     status: SubscriptionStatus;
     reason: SubscriptionReason | null;
 }
+export interface NoraApiSubscriberSubscriptionPartnersProductsRequest extends CommonRequest {
+    auth: AuthRequest;
+}
+export interface NoraApiSubscriberSubscriptionPartnersProductsResponse extends CommonResponse {
+    result: NoraApiSubscriberSubscriptionPartnerProducts[];
+}
 export interface NoraApiSubscriberSubscriptionPartnerProducts extends NoraAPISubscriptionPartnersProduct {
 }

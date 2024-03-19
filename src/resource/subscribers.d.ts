@@ -1,4 +1,4 @@
-import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
+import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSubscriberSubscriptionPartnersProductsRequest, NoraApiSubscriberSubscriptionPartnersProductsResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
 export declare class SubscribersAPI {
@@ -67,4 +67,11 @@ export declare class SubscribersAPI {
      * @param config axios config
      */
     autoPaySubscription(data: NoraApiSubscriberAutoPaySubscriptionRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberAutoPaySubscriptionResponse>;
+    /**
+     * Loading subscriber subscription available partner products
+     * @param data
+     * @param config AxiosConfig
+     * @returns Subscription partners products info
+     */
+    getSubscriptionPartnerProducts(data: NoraApiSubscriberSubscriptionPartnersProductsRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberSubscriptionPartnersProductsResponse>;
 }
