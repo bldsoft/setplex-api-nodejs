@@ -149,7 +149,7 @@ export interface SingleCallSubscription {
     contentAddOns?: ContentSetAddOnRequest[];
     /**
      * List of identifiers of ordered partner products
-     * Note: use externalId of PartnersProduct!
+     * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
 }
@@ -304,7 +304,7 @@ export interface PaymentsAPIDoRequest extends CommonRequest {
     prorateSubscription?: boolean;
     /**
      * List of identifiers of ordered partner products
-     * Note: use externalId of PartnersProduct!
+     * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
 }
@@ -380,7 +380,7 @@ export interface PaymentsAPICalculateRequest extends CommonRequest {
     prorateSubscription?: boolean;
     /**
      * List of identifiers of ordered partner products
-     * Note: use externalId of PartnersProduct!
+     * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
 }
@@ -698,7 +698,7 @@ export interface PaymentsAPICalculateAdditionsRequest extends CommonRequest {
     addOns?: string[];
     /**
      * List of identifiers of ordered partner products
-     * Note: use externalId of PartnersProduct!
+     * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
     /**
@@ -759,7 +759,7 @@ export interface PaymentsAPIPayAdditionsRequest extends CommonRequest {
     addOns?: string[];
     /**
      * List of identifiers of ordered partner products
-     * Note: use externalId of PartnersProduct!
+     * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
     creditCardId?: number;

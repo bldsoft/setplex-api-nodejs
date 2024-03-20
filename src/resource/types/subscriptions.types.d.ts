@@ -91,7 +91,7 @@ export interface NoraAPISubscription {
     /**
      * List of allowed partner products according subscription
      */
-    partnersProducts: NoraAPISubscriptionPartnersProduct[];
+    partnerProducts: NoraAPISubscriptionPartnerProduct[];
 }
 export interface NoraApiSubscriptionTrial {
     length: number;
@@ -213,7 +213,7 @@ export interface NoraAPISubscriptionAddOn {
      */
     accessoryType: AccessoryTypes;
 }
-export interface NoraAPISubscriptionPartnersProduct {
+export interface NoraAPISubscriptionPartnerProduct {
     /**
      * External identifier of the partner product
      */
