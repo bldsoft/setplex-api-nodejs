@@ -1,6 +1,6 @@
 import type { AuthRequest, CommonRequest, CommonResponse, OperationStatusResponse } from './';
 import type { SubscriberPaymentStatuses, SubscriptionReason, SubscriptionStatus } from './constants';
-import type { NoraAPISubscriptionPartnersProduct } from './subscriptions.types';
+import type { NoraAPISubscriptionPartnerProduct } from './subscriptions.types';
 export interface NoraAPIGetSubscriberRequest extends CommonRequest {
     auth: AuthRequest;
 }
@@ -496,7 +496,7 @@ export interface NoraApiSubscriberSubscription {
     /**
      * List of allowed partner products according subscription
      */
-    partnerProducts: NoraApiSubscriberSubscriptionPartnerProducts[];
+    partnerProducts: NoraApiSubscriberSubscriptionPartnerProduct[];
     /**
      * Current subscriber's subscription status
      */
@@ -620,7 +620,7 @@ export interface NoraApiSubscriberSubscriptionPartnersProductsRequest extends Co
     auth: AuthRequest;
 }
 export interface NoraApiSubscriberSubscriptionPartnersProductsResponse extends CommonResponse {
-    result: NoraApiSubscriberSubscriptionPartnerProducts[];
+    result: NoraApiSubscriberSubscriptionPartnerProduct[];
 }
-export interface NoraApiSubscriberSubscriptionPartnerProducts extends NoraAPISubscriptionPartnersProduct {
+export interface NoraApiSubscriberSubscriptionPartnerProduct extends NoraAPISubscriptionPartnerProduct {
 }
