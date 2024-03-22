@@ -690,7 +690,7 @@ export interface PayContentSetsResultItem {
 export interface PaymentsAPICalculateAdditionsRequest extends CommonRequest {
     auth: AuthRequest;
     paymentSystemType?: PaymentSystemTypes;
-    currencyId: number;
+    currencyId?: number;
     externalPaymentSystemType?: ExternalPaymentSystemTypes;
     /**
      * List of AddOn's Ids.
