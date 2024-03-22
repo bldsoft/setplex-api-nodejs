@@ -109,6 +109,10 @@ export interface NoraAPIPaymentSystemsOptionsRecalculateRequest {
      * Current subscription need to be overridden by the currently paid Subscription
      */
     override?: boolean;
+    /**
+     * List of identifiers of ordered partner products
+     */
+    partnerProducts?: string[];
 }
 export interface NoraAPIPaymentSystemsOptionsContentAddOn {
     externalId: string;
