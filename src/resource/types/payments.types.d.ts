@@ -526,7 +526,6 @@ export interface ContentSetAddOnProratedAmountCalculateResultDTO {
     proratedRentLengthInDays: number;
 }
 export interface PaymentsAPICalculateContentSetsRequest extends CommonRequest {
-    auth: AuthRequest;
     /**
      * Payment System type
      */
@@ -688,7 +687,6 @@ export interface PayContentSetsResultItem {
  * *
  */
 export interface PaymentsAPICalculateAdditionsRequest extends CommonRequest {
-    auth: AuthRequest;
     paymentSystemType?: PaymentSystemTypes;
     currencyId?: number;
     externalPaymentSystemType?: ExternalPaymentSystemTypes;
