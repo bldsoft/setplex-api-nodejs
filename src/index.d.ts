@@ -1,4 +1,5 @@
 export { NoraAPI } from './resource';
+export { NoraApiError } from './errors/nora-api.error';
 export { PaymentSystemTypes as NoraAPIPaymentSystemTypes, ExternalPaymentSystemTypes as NoraAPIExternalPaymentSystemTypes, AddOnType as NoraAPIAddOnType, SubscriberPaymentStatuses as NoraAPISubscriberPaymentStatuses, PaymentSystems as NoraAPIPaymentSystems, AccessoryTypes as NoraAPIAccessoryTypes, } from './resource/types/constants';
 export { NoraAPISubscriber, NoraApiSubscriberSubscription, NoraApiSubscriberSubscriptionContentSets, NoraApiSubscriberSubscriptionPartnerProduct, } from './resource/types/subscribers.types';
 export { NoraAPISubscription, NoraAPISubscriptionsPlan } from './resource/types/subscriptions.types';
