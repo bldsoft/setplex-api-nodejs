@@ -1,1 +1,1 @@
-{"version":3,"file":"nora-api.error.d.ts","sourceRoot":"","sources":["../../../src/errors/nora-api.error.ts"],"names":[],"mappings":"AAEA,qBAAa,YAAa,SAAQ,KAAK;IACrC,QAAQ;;MAEN;gBAEU,OAAO,EAAE,GAAG;CAgBzB"}
+{"version":3,"file":"nora-api.error.d.ts","sourceRoot":"","sources":["../../../src/errors/nora-api.error.ts"],"names":[],"mappings":"AAEA,qBAAa,YAAa,SAAQ,KAAK;IACrC,QAAQ;;MAEN;gBAEU,OAAO,EAAE,GAAG;CAiBzB"}
