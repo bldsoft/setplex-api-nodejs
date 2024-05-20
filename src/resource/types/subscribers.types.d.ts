@@ -625,7 +625,7 @@ export interface NoraApiSubscriberSubscriptionPartnersProductsResponse extends C
 export interface NoraApiSubscriberSubscriptionPartnerProduct extends NoraAPISubscriptionPartnerProduct {
 }
 export interface NoraApiSubscriberValidateUsernameRequest extends CommonRequest {
-    auth: AuthRequest;
+    auth?: AuthRequest;
     userName: string;
 }
 export interface NoraApiSubscriberValidateUsernameResponse extends CommonResponse {
