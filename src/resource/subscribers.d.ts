@@ -1,4 +1,4 @@
-import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSubscriberSubscriptionPartnersProductsRequest, NoraApiSubscriberSubscriptionPartnersProductsResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
+import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSubscriberSubscriptionPartnersProductsRequest, NoraApiSubscriberSubscriptionPartnersProductsResponse, NoraApiSubscriberValidateUsernameRequest, NoraApiSubscriberValidateUsernameResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
 export declare class SubscribersAPI {
@@ -74,4 +74,10 @@ export declare class SubscribersAPI {
      * @returns Subscription partners products info
      */
     getSubscriptionPartnerProducts(data: NoraApiSubscriberSubscriptionPartnersProductsRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberSubscriptionPartnersProductsResponse>;
+    /**
+     * Validates uniqueness username
+     * @param userName string
+     * @returns
+     */
+    validateUsername(data: NoraApiSubscriberValidateUsernameRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberValidateUsernameResponse>;
 }
