@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
-import { NoraAPIAutopayContentRentRequest, NoraAPIAutopayContentRentResponse, NoraAPIGetContentRentRequest, NoraAPIGetContentRentResponse } from './types/content-rent';
+import { NoraAPIAutopayContentRentRequest, NoraAPIAutopayContentRentResponse, NoraAPIGetContentRentRequest, NoraAPIGetContentRentResponse } from './types/content-rent.types';
 export declare class ContentRentProlongationAPI {
     readonly path = "/content-rent-prolongations";
     readonly context: ContextAPI;
@@ -17,5 +17,5 @@ export declare class ContentRentProlongationAPI {
      * @param data
      * @param config
      */
-    getPlans(data?: NoraAPIAutopayContentRentRequest, config?: AxiosRequestConfig): Promise<NoraAPIAutopayContentRentResponse>;
+    toggleAutopay(data?: NoraAPIAutopayContentRentRequest, config?: AxiosRequestConfig): Promise<NoraAPIAutopayContentRentResponse>;
 }
