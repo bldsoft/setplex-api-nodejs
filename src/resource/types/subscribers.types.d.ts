@@ -243,6 +243,24 @@ export interface NoraAPISubscriberPurchasedAccessories {
      */
     description: string;
 }
+export interface NoraAPISubscriberContentRentProlongation {
+    /** Content id allowed to change auto payment state. */
+    externalId: string;
+    /** Rented content name allowed to change auto payment state. */
+    contentName: string;
+    /** Rented content description allowed to change auto payment state. */
+    description: string;
+    /** URL for storage cover image of the Content add-on. */
+    coverImageUrl: string;
+    /** An amount of the of the Content add-on. */
+    price: number;
+    /** Price currency of the of the Content add-on. */
+    currency: string;
+    /** Date and time of the rented content add-on expiration. At that time auto prolongation will be applied if it enabled. */
+    availableTill: string;
+    /** Current prolongation state. */
+    autoPayEnabled: boolean;
+}
 export interface NoraAPISubscriberExternalDevice {
     /**
      * Serial number of devices.
