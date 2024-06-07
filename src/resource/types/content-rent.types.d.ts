@@ -30,6 +30,8 @@ export interface NoraAPIAutopayContentRentRequest extends CommonRequest {
 }
 /** Interface of the response object for call /content-rent-prolongations/autopay */
 export interface NoraAPIAutopayContentRentResponse extends CommonResponse {
-    externalId: string;
-    autoPay: boolean;
+    result: {
+        externalId: string;
+        autoPay: boolean;
+    };
 }
