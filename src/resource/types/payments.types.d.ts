@@ -164,7 +164,7 @@ export interface SingleCallSubscription {
      * Auto prolongation for content set addons. If autoPay flag in the same request is false, this flag will be skipped.
      * @default false
      */
-    contentAddonsAutoPay: boolean;
+    contentAddonsAutoPay?: boolean;
 }
 export interface ContentSetAddOnRequest {
     /**
