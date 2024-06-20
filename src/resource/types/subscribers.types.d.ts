@@ -519,6 +519,10 @@ export interface NoraApiSubscriberSubscription {
      * Current subscriber's subscription status
      */
     currentSubscriptionStatus: NoraApiSubscriberSubscriptionStatus;
+    /**
+     * Indicator that the subscription is unlimited
+     */
+    periodUnlimited: boolean;
 }
 export interface NoraApiSubscriberSubscriptionTrial {
     length: number;
