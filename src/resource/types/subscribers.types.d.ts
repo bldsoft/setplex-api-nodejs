@@ -1,11 +1,8 @@
 import type { AuthRequest, CommonRequest, CommonResponse, OperationStatusResponse } from './';
-import type { SubscriberPaymentStatuses, SubscriptionReason, SubscriptionStatus } from './constants';
+import type { SubscriberOperatorsType, SubscriberPaymentStatuses, SubscriptionReason, SubscriptionStatus } from './constants';
 import type { NoraAPISubscriptionPartnerProduct } from './subscriptions.types';
 export interface NoraAPIGetSubscriberRequest extends CommonRequest {
     auth: AuthRequest;
-}
-export interface NoraAPIGetSubscriberByEmailRequest extends CommonRequest {
-    email: string;
 }
 export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
     auth?: Omit<AuthRequest, 'accountNumber' | 'lastName' | 'accessToken'>;
@@ -14,27 +11,6 @@ export interface NoraAPIGetSubscriberInfoRequest extends CommonRequest {
 }
 export interface NoraAPIGetSubscriberResponse extends CommonResponse {
     result: NoraAPISubscriber;
-}
-export interface NoraAPIGetSubscriberByEmailResponse extends CommonResponse {
-    result: {
-        content: NoraAPISubscriber[];
-        /**
-         * Number of the displayed page
-         */
-        number: number;
-        /**
-         * Maximum elements, which are displayed on the page
-         */
-        size: number;
-        /**
-         * The flag which describes if the page is first
-         */
-        first: boolean;
-        /**
-         * The flag which describes if the page is last
-         */
-        last: boolean;
-    };
 }
 export interface NoraAPISubscriber {
     /**
@@ -651,4 +627,99 @@ export interface NoraApiSubscriberValidateUsernameRequest extends CommonRequest 
     userName: string;
 }
 export interface NoraApiSubscriberValidateUsernameResponse extends CommonResponse {
+}
+export interface NoraAPIGetSubscriberByEmailRequest extends CommonRequest {
+    /**
+     * Subscriber email to search.
+     */
+    email: string;
+    /**
+     * Subscriber phone to search.
+     */
+    phoneNumber: string;
+    /**
+     * Access token of external provider
+     */
+    accessToken: string;
+    /**
+     * Type of external provider
+     */
+    providerType: string;
+}
+export interface NoraAPIGetSubscriberByEmailResponse extends CommonResponse {
+    result: {
+        content: NoraAPIGetSubscriberByEmail[];
+        /**
+         * Number of the displayed page
+         */
+        number: number;
+        /**
+         * Maximum elements, which are displayed on the page
+         */
+        size: number;
+        /**
+         * The flag which describes if the page is first
+         */
+        first: boolean;
+        /**
+         * The flag which describes if the page is last
+         */
+        last: boolean;
+    };
+}
+export interface NoraAPIGetSubscriberByEmail {
+    /**
+     * Subscriber account number
+     */
+    accountNumber: string;
+    /**
+     * User name of subscriber.
+     */
+    userName: string;
+    /**
+     * Pin code of subscriber.
+     * 4 digits
+     */
+    pinCode: string;
+    /**
+     * First name of subscriber.
+     */
+    firstName: string;
+    /**
+     * Last name of subscriber.
+     */
+    lastName: string;
+    /**
+     * Email of subscriber.
+     */
+    email: string;
+    /**
+     * Phone of subscriber
+     */
+    phone: string;
+    /**
+     * Zip code
+     */
+    zipCode: string;
+    /**
+     * Address of subscriber.
+     */
+    address: string;
+    /**
+     * City
+     */
+    city: string;
+    /**
+     * Country code ( ISO 3166)
+     */
+    country: string;
+    /**
+     * State
+     */
+    state: string;
+    /**
+     * Subscriber's time zone
+     */
+    timeZone: string;
+    operator: SubscriberOperatorsType;
 }

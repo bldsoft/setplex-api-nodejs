@@ -85,3 +85,15 @@ export declare enum SubscriberSubscriptionType {
 export declare enum PartnerProviders {
     iQIYI = "iQIYI"
 }
+export declare enum SubscriberOperatorsType {
+    'ACES' = "ACES",
+    'AIS' = "AIS",
+    'CATCDMA' = "CATCDMA",
+    'AWN' = "AWN",
+    'DPC' = "DPC",
+    'DTAC' = "DTAC",
+    'RTF3G' = "RTF3G",
+    'TOT3G' = "TOT3G",
+    'DTN' = "DTN",
+    'TMV' = "TMV"
+}
