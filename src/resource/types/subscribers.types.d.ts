@@ -632,19 +632,19 @@ export interface NoraAPIGetSubscribersByParametersRequest extends CommonRequest 
     /**
      * Subscriber email to search.
      */
-    email: string;
+    email?: string;
     /**
      * Subscriber phone to search.
      */
-    phoneNumber: string;
+    phoneNumber?: string;
     /**
      * Access token of external provider
      */
-    accessToken: string;
+    accessToken?: string;
     /**
      * Type of external provider
      */
-    providerType: string;
+    providerType?: string;
 }
 export interface NoraAPIGetSubscriberByEmailRequest extends NoraAPIGetSubscribersByParametersRequest {
 }
