@@ -628,7 +628,7 @@ export interface NoraApiSubscriberValidateUsernameRequest extends CommonRequest 
 }
 export interface NoraApiSubscriberValidateUsernameResponse extends CommonResponse {
 }
-export interface NoraAPIGetSubscriberByEmailRequest extends CommonRequest {
+export interface NoraAPIGetSubscribersByParametersRequest extends CommonRequest {
     /**
      * Subscriber email to search.
      */
@@ -646,7 +646,9 @@ export interface NoraAPIGetSubscriberByEmailRequest extends CommonRequest {
      */
     providerType: string;
 }
-export interface NoraAPIGetSubscriberByEmailResponse extends CommonResponse {
+export interface NoraAPIGetSubscriberByEmailRequest extends NoraAPIGetSubscribersByParametersRequest {
+}
+export interface NoraAPIGetSubscribersByParametersResponse extends CommonResponse {
     result: {
         content: NoraAPIGetSubscriberByEmail[];
         /**
@@ -666,6 +668,8 @@ export interface NoraAPIGetSubscriberByEmailResponse extends CommonResponse {
          */
         last: boolean;
     };
+}
+export interface NoraAPIGetSubscriberByEmailResponse extends NoraAPIGetSubscribersByParametersResponse {
 }
 export interface NoraAPIGetSubscriberByEmail {
     /**

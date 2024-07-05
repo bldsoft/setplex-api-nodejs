@@ -1,4 +1,4 @@
-import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSubscriberSubscriptionPartnersProductsRequest, NoraApiSubscriberSubscriptionPartnersProductsResponse, NoraApiSubscriberValidateUsernameRequest, NoraApiSubscriberValidateUsernameResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
+import type { NoraAPIGetSubscriberByEmailRequest, NoraAPIGetSubscriberByEmailResponse, NoraAPIGetSubscriberInfoRequest, NoraAPIGetSubscriberRequest, NoraAPIGetSubscriberResponse, NoraAPIGetSubscribersByParametersRequest, NoraAPIGetSubscribersByParametersResponse, NoraApiSubscriberAutoPaySubscriptionRequest, NoraApiSubscriberAutoPaySubscriptionResponse, NoraApiSubscriberCancelSubscriptionRequest, NoraApiSubscriberCancelSubscriptionResponse, NoraApiSubscriberSubscriptionContentSetsRequest, NoraApiSubscriberSubscriptionContentSetsResponse, NoraApiSubscriberSubscriptionGetRequest, NoraApiSubscriberSubscriptionGetResponse, NoraApiSubscriberSubscriptionPartnersProductsRequest, NoraApiSubscriberSubscriptionPartnersProductsResponse, NoraApiSubscriberValidateUsernameRequest, NoraApiSubscriberValidateUsernameResponse, NoraApiSusbscriberUnassignDeviceRequest, NoraApiSusbscriberUnassignDeviceResponse, NoraAPIUpdateSubscriberInfoRequest, NoraAPIUpdateSubscriberResponse } from './types/subscribers.types';
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
 export declare class SubscribersAPI {
@@ -17,6 +17,7 @@ export declare class SubscribersAPI {
      * @param data Subscriber email
      * @param config AxiosConfig
      * @returns Subscribers detail info
+     * @deprecated
      */
     getByEmail(data: NoraAPIGetSubscriberByEmailRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscriberByEmailResponse>;
     /**
@@ -76,8 +77,16 @@ export declare class SubscribersAPI {
     getSubscriptionPartnerProducts(data: NoraApiSubscriberSubscriptionPartnersProductsRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberSubscriptionPartnersProductsResponse>;
     /**
      * Validates uniqueness username
-     * @param userName string
-     * @returns
+     * @param data
+     * @param config
      */
     validateUsername(data: NoraApiSubscriberValidateUsernameRequest, config?: AxiosRequestConfig): Promise<NoraApiSubscriberValidateUsernameResponse>;
+    /**
+     * Get subscribers by parameters
+     * @description Search is allowed only by email or phone or providerType with accessToken without any combination with parameters.
+     * @param data Subscriber params
+     * @param config AxiosConfig
+     * @returns Subscribers detail info
+     */
+    search(data: NoraAPIGetSubscribersByParametersRequest, config?: AxiosRequestConfig): Promise<NoraAPIGetSubscribersByParametersResponse>;
 }
