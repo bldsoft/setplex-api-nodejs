@@ -114,6 +114,7 @@ export interface NoraAPISubscriber {
      * Current subscriber's subscription status
      */
     currentSubscriptionStatus: NoraApiSubscriberSubscriptionStatus;
+    operator: SubscriberOperatorsType | null;
 }
 export interface NoraAPISubscriberExternalActivationCode {
     /**
