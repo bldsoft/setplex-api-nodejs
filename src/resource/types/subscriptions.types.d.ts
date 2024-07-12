@@ -92,6 +92,7 @@ export interface NoraAPISubscription {
      * List of allowed partner products according subscription
      */
     partnerProducts: NoraAPISubscriptionPartnerProduct[];
+    free: boolean;
 }
 export interface NoraApiSubscriptionTrial {
     length: number;

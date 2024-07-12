@@ -500,6 +500,7 @@ export interface NoraApiSubscriberSubscription {
      * Indicator that the subscription is unlimited
      */
     periodUnlimited: boolean;
+    free: boolean;
 }
 export interface NoraApiSubscriberSubscriptionTrial {
     length: number;
