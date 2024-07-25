@@ -7,6 +7,7 @@ import { PaymentSystemsAPI } from './payment-systems';
 import { PaymentMethodsAPI } from './payment-methods';
 import { DictionariesAPI } from './dictionaries';
 import { ContentRentProlongationAPI } from './content-rent';
+import { PaidContentAPI } from './paid-content';
 export declare class NoraAPI implements ContextAPI {
     readonly config: APIConfig;
     readonly logger: unknown;
@@ -17,6 +18,7 @@ export declare class NoraAPI implements ContextAPI {
     readonly paymentMethods: PaymentMethodsAPI;
     readonly dictionaries: DictionariesAPI;
     readonly contentRent: ContentRentProlongationAPI;
+    readonly paidContent: PaidContentAPI;
     constructor(cfg?: APIConfig);
     send(): AxiosInstance;
     post<R = any, D = any>(url: string, data?: D, config?: any): Promise<R>;
