@@ -5,3 +5,4 @@ export { NoraAPISubscriber, NoraApiSubscriberSubscription, NoraApiSubscriberSubs
 export { NoraAPISubscription, NoraAPISubscriptionsPlan } from './resource/types/subscriptions.types';
 export { NoraAPIPaymentSystemsOptionsRequest } from './resource/types/payment-systems.types';
 export { PayAdditionsResult, PaymentsAPIPayAdditionsRequest, CalculateAdditionsResult, PaymentsAPICalculateAdditionsRequest, } from './resource/types/payments.types';
+export { NoraAPIContentItemTypes } from './resource/types/paid-content-items.types';

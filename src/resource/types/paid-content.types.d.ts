@@ -1,4 +1,5 @@
 import { CommonRequest, CommonResponse } from '.';
+import { NoraAPIContentItemTypes } from './paid-content-items.types';
 export interface NoraAPIGetPaidContentRequest extends CommonRequest {
     /** Unsigned page number */
     page: number;
@@ -20,7 +21,7 @@ export interface NoraAPIGetPaidContentRequest extends CommonRequest {
 }
 export interface NoraAPIGetPaidContentResponse extends CommonResponse {
     result: {
-        content: unknown[];
+        content: NoraAPIContentItemTypes[];
         /** Unique identifier of the subscription */
         subscriptionId: string;
         /** Number of the displayed page. */
@@ -47,8 +48,10 @@ export interface NoraAPIGetItemPaidContentRequest extends CommonRequest {
 }
 export interface NoraAPIGetItemPaidContentResponse extends CommonResponse {
     result: {
-        content: unknown[];
         /** Unique identifier of the subscription */
         subscriptionId: string;
+        /** Paid content item type */
+        contentType: 'CHANNEL' | 'EPISODE' | 'SEASON' | 'TV_SHOW' | 'LIVE_EVENT' | 'VOD';
+        content: NoraAPIContentItemTypes;
     };
 }
