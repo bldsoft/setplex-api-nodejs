@@ -581,6 +581,15 @@ export interface NoraApiSubscriberSubscriptionContentSetAddOnRent {
      */
     subscriptionLengthType: 'DAY' | 'MONTH' | 'YEAR';
     proratedAmount: NoraApiSubscriberSubscriptionContentSetAddOnRentProrated;
+    /**
+     * Flag describes that the Channel add-on is rented for unlimited period.
+     * (Content add-ons of the other content types, such as VIdeo on Demand, TV show, Live Event, can not be unlimited.)
+     */
+    periodUnlimited: boolean;
+    /**
+     * Flag describes is content rent prolongation is allowed.
+     */
+    autoPayAllowed: boolean;
 }
 export interface NoraApiSubscriberSubscriptionContentSetAddOnRentProrated {
     amount: number;
