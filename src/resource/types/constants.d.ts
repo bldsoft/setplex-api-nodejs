@@ -1,14 +1,15 @@
 export declare enum PaymentSystemTypes {
     AUTHORIZE_NET = "AUTHORIZE_NET",
+    GR4VY_GATEWAY = "GR4VY_GATEWAY",
     CASH = "CASH",
     CHECK = "CHECK",
     NEWEBPAY = "NEWEBPAY",
     PAYPAL = "PAYPAL",
     TELR = "TELR",
     EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS",
-    GR4VY_GATEWAY = "GR4VY_GATEWAY",
     CCPP = "CCPP",
-    TRUE_MONEY = "TRUE_MONEY"
+    TRUE_MONEY = "TRUE_MONEY",
+    TOL = "TOL"
 }
 export declare enum ExternalPaymentSystemTypes {
     AUTHORIZE_NET_MANUAL = "AUTHORIZE_NET_MANUAL",
@@ -41,21 +42,6 @@ export declare enum SubscriptionStatus {
 export declare enum SubscriptionReason {
     OVERRIDDEN = "Overridden",
     SKIPPED = "Skipped"
-}
-/**
- * External list of payment system type
- */
-export declare enum PaymentSystems {
-    GR4VY_GATEWAY = "GR4VY_GATEWAY",
-    AUTHORIZE_NET = "AUTHORIZE_NET",
-    CASH = "CASH",
-    CHECK = "CHECK",
-    NEWEBPAY = "NEWEBPAY",
-    PAYPAL = "PAYPAL",
-    TELR = "TELR",
-    EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS",
-    CCPP = "CCPP",
-    TRUE_MONEY = "TRUE_MONEY"
 }
 export declare enum PeriodTimeUnits {
     DAY = "DAY",

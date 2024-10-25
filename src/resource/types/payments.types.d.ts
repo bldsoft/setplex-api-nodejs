@@ -35,7 +35,7 @@ export interface PaymentsAPIDoSingleRequest extends CommonRequest {
     /**
      * @default PaymentSystemTypes.AUTHORIZE_NET
      */
-    paymentSystemType?: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP' | 'TRUE_MONEY';
+    paymentSystemType?: PaymentSystemTypes;
     /**
      * If value of field "paymentSystemType" is EXTERNAL_PAYMENTS, this field must be not empty.
      */

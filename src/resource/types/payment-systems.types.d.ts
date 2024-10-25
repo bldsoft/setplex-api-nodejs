@@ -1,7 +1,7 @@
 import type { CommonRequest } from './index';
 import type { AuthRequest } from './index';
 import type { CommonResponse } from './index';
-import type { AddOnType } from './constants';
+import type { AddOnType, PaymentSystemTypes } from './constants';
 import type { NoraAPISubscriberPurchasedAccessories, NoraAPISubscriberPurchasedContentAddOn, NoraApiSubscriberSubscriptionStatus } from './subscribers.types';
 /**
  * Interface of the request object for call /payment-systems/getAvailable
@@ -47,7 +47,7 @@ export interface NoraAPIPaymentSystemsOptionsRequest extends CommonRequest {
      * Value of payment system for which you need to get settings
      * There are available value of this field: GR4VY_GATEWAY
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP' | 'TRUE_MONEY';
+    paymentSystemType: PaymentSystemTypes;
     /**
      * Data to recalculate original amount and check that amount wasn’t changed during shopping cart checkout
      */
@@ -189,7 +189,7 @@ export interface NoraAPIPaymentSystemsAddFlowRequest extends CommonRequest {
      * Payment system type
      * There are available value of this field: GR4VY_GATEWAY
      */
-    paymentSystemType: 'GR4VY_GATEWAY' | 'AUTHORIZE_NET' | 'CASH' | 'CHECK' | 'NEWEBPAY' | 'PAYPAL' | 'TELR' | 'EXTERNAL_PAYMENTS' | 'CCPP' | 'TRUE_MONEY';
+    paymentSystemType: PaymentSystemTypes;
 }
 export interface NoraAPIPaymentSystemsAddFlowResponse extends CommonResponse {
     result: NoraAPIPaymentSystemsOption;
