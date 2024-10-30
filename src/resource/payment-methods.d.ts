@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from 'axios';
 import type { ContextAPI } from './types';
-import type { NoraApiCreateCreditCardsRequest, NoraApiCreateCreditCardsResponse, NoraApiDeleteCreditCardRequest, NoraApiSetDefaultCreditCardRequest, NoraApiSetDefaultCreditCardResponse, NoraApiGetPaymentMethodResponse, NoraApiGetPaymentMethodReuqest, NoraApiSetDefaultWalletRequest, NoraApiSetDefaultWalletResponse, NoraApiDeleteWalletRequest, NoraApiDeleteWalletResponse, NoraApiDeleteCreditCardResponse, NoraApiAddPaymentMethodRequest, NoraApiAddPaymentMethodResponse, NoraApiInitTrueMoneyRequest, NoraApiInitTrueMoneyResponse, NoraApiBindTrueMoneyRequest, NoraApiBindTrueMoneyResponse } from './types/payment-method.types';
+import type { NoraApiCreateCreditCardsRequest, NoraApiCreateCreditCardsResponse, NoraApiDeleteCreditCardRequest, NoraApiSetDefaultCreditCardRequest, NoraApiSetDefaultCreditCardResponse, NoraApiGetPaymentMethodResponse, NoraApiGetPaymentMethodReuqest, NoraApiSetDefaultWalletRequest, NoraApiSetDefaultWalletResponse, NoraApiDeleteWalletRequest, NoraApiDeleteWalletResponse, NoraApiDeleteCreditCardResponse, NoraApiAddPaymentMethodRequest, NoraApiAddPaymentMethodResponse, NoraApiInitTrueMoneyRequest, NoraApiInitTrueMoneyResponse, NoraApiBindTrueMoneyRequest, NoraApiBindTrueMoneyResponse, NoraApiInitDCBRequest, NoraApiInitDCBResponse, NoraApiVerifyCertIdDCBRequest, NoraApiVerifyCertIdDCBResponse, NoraApiVerifyOtpDCBRequest, NoraApiVerifyOtpDCBResponse } from './types/payment-method.types';
 export declare class PaymentMethodsAPI {
     readonly path = "/payment-method";
     readonly context: ContextAPI;
@@ -71,4 +71,23 @@ export declare class PaymentMethodsAPI {
      * @param config AxiosConfiguration
      */
     bindTrueMoney(data: NoraApiBindTrueMoneyRequest, config?: AxiosRequestConfig): Promise<NoraApiBindTrueMoneyResponse>;
+    /**
+     * Check state of DCB payment method and prepare for...
+     * 0 - Success
+     * 2 - Invalid request
+     * 158 - True Online Subscriber lookup failed
+     * 162 - SMS limit reached
+     * 164 - circuitId/msisdn is required
+     */
+    initDCB(data: NoraApiInitDCBRequest, config?: AxiosRequestConfig): Promise<NoraApiInitDCBResponse>;
+    /**
+     * Verify OTP for DCB payment methods (TrueOnline/TrueMove-H)
+     * Possible status codes: 0, 2, 159, 163, 165
+     */
+    verifyOtpDCB(data: NoraApiVerifyOtpDCBRequest, config?: AxiosRequestConfig): Promise<NoraApiVerifyOtpDCBResponse>;
+    /**
+     * Verify Certificate ID (Thai ID, Passport, or Alien Number). Used for True Online Payments
+     * Possible status codes: 0, 2, 160, 161, 163
+     */
+    verifyCertIdDCB(data: NoraApiVerifyCertIdDCBRequest, config?: AxiosRequestConfig): Promise<NoraApiVerifyCertIdDCBResponse>;
 }

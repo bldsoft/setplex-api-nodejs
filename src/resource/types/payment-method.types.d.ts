@@ -242,3 +242,50 @@ export interface NoraApiBindTrueMoneyRequest extends CommonRequest {
 }
 export interface NoraApiBindTrueMoneyResponse extends CommonResponse {
 }
+export interface NoraApiInitDCBRequest extends CommonRequest {
+    auth: AuthRequest;
+    /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
+    paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
+    /** Mobile Number. Used only if phone number in the subscriber's profile is empty (or 0) */
+    msisdn?: string;
+}
+export interface NoraApiInitDCBResponse extends CommonResponse {
+    result: {
+        /** Phone number verification is required. Proceed to the verifyOtp step. */
+        waitOtp: boolean;
+        /** The ID for subsequent requests. */
+        paymentRequestId: string;
+        /** Used with error 162. Phone number verification is required but cannot be processed now. Please try again later. */
+        remainsSeconds: number;
+    };
+}
+export interface NoraApiVerifyOtpDCBRequest extends CommonRequest {
+    auth: AuthRequest;
+    /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
+    paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
+    /** The ID from the initial request. */
+    paymentRequestId: string;
+    /** The OTP required for phone number verification. */
+    otp: string;
+    /** The certificate ID (e.g., ThaiID, Passport) for verification. */
+    certId: string;
+    /** Circuit Id */
+    circuitId?: string;
+}
+export interface NoraApiVerifyOtpDCBResponse extends CommonResponse {
+}
+export interface NoraApiVerifyCertIdDCBRequest extends CommonRequest {
+    auth: AuthRequest;
+    /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
+    paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
+    /** The ID from the initial request. */
+    paymentRequestId: string;
+    /** The OTP required for phone number verification. */
+    otp: string;
+    /** The certificate ID (e.g., ThaiID, Passport) for verification. */
+    certId: string;
+    /** Circuit Id */
+    circuitId?: string;
+}
+export interface NoraApiVerifyCertIdDCBResponse extends CommonResponse {
+}

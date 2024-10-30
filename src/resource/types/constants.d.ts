@@ -9,7 +9,9 @@ export declare enum PaymentSystemTypes {
     EXTERNAL_PAYMENTS = "EXTERNAL_PAYMENTS",
     CCPP = "CCPP",
     TRUE_MONEY = "TRUE_MONEY",
-    TOL = "TOL"
+    TOL = "TOL",
+    TRUE_ONLINE = "TRUE_ONLINE",
+    TRUE_MOVE_H = "TRUE_MOVE_H"
 }
 export declare enum ExternalPaymentSystemTypes {
     AUTHORIZE_NET_MANUAL = "AUTHORIZE_NET_MANUAL",
