@@ -243,7 +243,7 @@ export interface NoraApiBindTrueMoneyRequest extends CommonRequest {
 export interface NoraApiBindTrueMoneyResponse extends CommonResponse {
 }
 export interface NoraApiInitDCBRequest extends CommonRequest {
-    auth: AuthRequest;
+    auth?: AuthRequest;
     /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
     paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
     /** Mobile Number. Used only if phone number in the subscriber's profile is empty (or 0) */
@@ -260,7 +260,7 @@ export interface NoraApiInitDCBResponse extends CommonResponse {
     };
 }
 export interface NoraApiVerifyOtpDCBRequest extends CommonRequest {
-    auth: AuthRequest;
+    auth?: AuthRequest;
     /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
     paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
     /** The ID from the initial request. */
@@ -275,7 +275,7 @@ export interface NoraApiVerifyOtpDCBRequest extends CommonRequest {
 export interface NoraApiVerifyOtpDCBResponse extends CommonResponse {
 }
 export interface NoraApiVerifyCertIdDCBRequest extends CommonRequest {
-    auth: AuthRequest;
+    auth?: AuthRequest;
     /** Payment System Type (TRUE_ONLINE or TRUE_MOVE_H) */
     paymentSystemType: 'TRUE_ONLINE' | 'TRUE_MOVE_H';
     /** The ID from the initial request. */
