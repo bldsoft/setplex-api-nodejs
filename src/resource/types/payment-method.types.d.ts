@@ -266,9 +266,9 @@ export interface NoraApiVerifyOtpDCBRequest extends CommonRequest {
     /** The ID from the initial request. */
     paymentRequestId: string;
     /** The OTP required for phone number verification. */
-    otp: string;
+    otp?: string;
     /** The certificate ID (e.g., ThaiID, Passport) for verification. */
-    certId: string;
+    certId?: string;
     /** Circuit Id */
     circuitId?: string;
 }
@@ -281,9 +281,9 @@ export interface NoraApiVerifyCertIdDCBRequest extends CommonRequest {
     /** The ID from the initial request. */
     paymentRequestId: string;
     /** The OTP required for phone number verification. */
-    otp: string;
+    otp?: string;
     /** The certificate ID (e.g., ThaiID, Passport) for verification. */
-    certId: string;
+    certId?: string;
     /** Circuit Id */
     circuitId?: string;
 }
