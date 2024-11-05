@@ -320,6 +320,8 @@ export interface PaymentsAPIDoRequest extends CommonRequest {
      * Note: use externalId of PartnerProducts!
      */
     partnerProducts?: string[];
+    /** A unique identifier of this payment. Used with DCB payments. */
+    paymentRequestId?: string;
 }
 export interface PaymentsAPIDoResponse extends CommonResponse {
     /**
@@ -796,6 +798,8 @@ export interface PaymentsAPIPayAdditionsRequest extends CommonRequest {
      * If current subscription without auto pay, this flag will be skipped.
      */
     contentAddonsAutoPay?: boolean;
+    /** A unique identifier of this payment. Used with DCB payments. */
+    paymentRequestId?: string;
 }
 export interface PaymentsAPIPayAdditionsResponse extends CommonResponse {
     result: PayAdditionsResult;
