@@ -737,4 +737,18 @@ export interface NoraAPIGetSubscriberByEmail {
      */
     timeZone: string;
     operator: SubscriberOperatorsType;
+    /**
+     * Is Terms Of Condition accepted by subscriber or not
+     */
+    toaAccepted: boolean;
+}
+export interface NoraApiSubscriberGetToaRequest extends CommonRequest {
+}
+export interface NoraApiSubscriberGetToaResponse extends CommonResponse {
+    subject: string;
+    message: string;
+}
+export interface NoraApiSubscriberAcceptToaRequest extends CommonRequest {
+}
+export interface NoraApiSubscriberAcceptToaResponse extends CommonResponse {
 }
