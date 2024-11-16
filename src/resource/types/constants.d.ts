@@ -85,3 +85,11 @@ export declare enum SubscriberOperatorsType {
     'DTN' = "DTN",
     'TMV' = "TMV"
 }
+export declare enum PaymentSystem2C2PStatusOfThePurchase {
+    CANCELLED = "CANCELLED",
+    PAID = "PAID",
+    PAYMENT_FAILED = "PAYMENT_FAILED",
+    PENDING_PAYMENT = "PENDING_PAYMENT",
+    VOID = "VOID",
+    REFUNDED = "REFUNDED"
+}

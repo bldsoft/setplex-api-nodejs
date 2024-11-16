@@ -1,7 +1,7 @@
 import type { CommonRequest } from './index';
 import type { AuthRequest } from './index';
 import type { CommonResponse } from './index';
-import type { AddOnType, PaymentSystemTypes } from './constants';
+import type { AddOnType, PaymentSystem2C2PStatusOfThePurchase, PaymentSystemTypes } from './constants';
 import type { NoraAPISubscriberPurchasedAccessories, NoraAPISubscriberPurchasedContentAddOn, NoraApiSubscriberSubscriptionStatus } from './subscribers.types';
 /**
  * Interface of the request object for call /payment-systems/getAvailable
@@ -271,4 +271,8 @@ export interface NoraAPIPaymentSystemsResult {
      * Unique number of the payment, which is used to reference Subscriber's payments and purchases.
      */
     paymentNumber: string;
+    /**
+     * Current status of the purchase.
+     */
+    paymentStatus: PaymentSystem2C2PStatusOfThePurchase;
 }
