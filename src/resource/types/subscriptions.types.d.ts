@@ -55,6 +55,10 @@ export interface NoraAPISubscription {
      */
     periodUnlimited: boolean;
     /**
+     * Specific end date for a subscription
+     */
+    dueDate: string;
+    /**
      * There is a field which contains info about interval of time which subscription is active.
      * This field doesn't work alone. This field works with length field.
      */
