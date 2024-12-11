@@ -177,6 +177,8 @@ export interface NoraAPIAddOnContentSetRent {
      * This field doesn't work alone. This field works with length field.
      */
     subscriptionLengthType: 'DAY' | 'MONTH' | 'YEAR';
+    /** */
+    dueDate: string;
     proratedAmount: NoraAPIAddOnContentSetRentProratedAmount;
     /**
      * Flag describes that the Channel add-on is rented for unlimited period.

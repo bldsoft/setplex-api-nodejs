@@ -22,6 +22,8 @@ export interface NoraAPIContentItemPriceSettings {
      * This field does not work alone. This field works with the 'length' field.
      */
     availabilityPeriodTimeUnit: 'DAY' | 'MONTH' | 'YEAR';
+    /** */
+    availabilityDueDate: string;
     /** Flag describes if the item rent period is unlimited. */
     periodUnlimited: boolean;
     /** The bundle, which the content item belongs to. Null is returned if the content item does not belong to the bundle. */

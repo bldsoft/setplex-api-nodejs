@@ -394,7 +394,9 @@ export interface SubscriberSubscriptionRentAddOn {
      * There is a field which contains info about interval of time which content set add-on is active.
      * This field doesn't work alone. This field works with length field.
      */
-    subscriptionLengthType: string;
+    subscriptionLengthType: 'DAY' | 'MONTH' | 'YEAR';
+    /** */
+    dueDate: string;
     /**
      * If rent length more than remaining current subscription days, pricing of rent is recalculated based on remaining subscription days
      */
@@ -584,6 +586,8 @@ export interface NoraApiSubscriberSubscriptionContentSetAddOnRent {
      * This field doesn't work alone. This field works with length field.
      */
     subscriptionLengthType: 'DAY' | 'MONTH' | 'YEAR';
+    /** */
+    dueDate: string;
     proratedAmount: NoraApiSubscriberSubscriptionContentSetAddOnRentProrated;
     /**
      * Flag describes that the Channel add-on is rented for unlimited period.
